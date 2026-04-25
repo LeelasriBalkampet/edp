@@ -19,10 +19,9 @@ def get_weather():
     response = requests.get(url)
     data = response.json()
 
-    # ERROR HANDLING
     if "main" not in data:
         st.warning("Weather API failed, using default values")
-        return 30, 60   # fallback values
+        return 30, 60  
 
     temp = data["main"]["temp"]
     humidity = data["main"]["humidity"]
