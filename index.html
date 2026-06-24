@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI-Optimized Smart Grid</title>
+  <meta name="description" content="AI-powered smart grid simulation with renewable energy management, battery optimization, and ML-based load forecasting." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="layout">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar">
+      <div class="sidebar-title">⚡ Smart Grid Builder</div>
+
+      <div class="sidebar-section">Control Panel</div>
+
+      <div class="weather-card" id="weather-card">
+        <div class="weather-row"><span>🌡️ Temp</span><span id="temp-val">Loading…</span></div>
+        <div class="weather-row"><span>💧 Humidity</span><span id="hum-val">—</span></div>
+      </div>
+
+      <label class="slider-label">Load Demand (kW): <span id="load-display">80</span></label>
+      <input type="range" id="load-slider" min="20" max="150" value="80" />
+
+      <div class="toggle-group">
+        <label class="toggle-label"><span>☀️ Enable Solar</span>
+          <input type="checkbox" id="solar-toggle" checked />
+          <span class="toggle-switch"></span>
+        </label>
+        <label class="toggle-label"><span>🌬️ Enable Wind</span>
+          <input type="checkbox" id="wind-toggle" checked />
+          <span class="toggle-switch"></span>
+        </label>
+        <label class="toggle-label"><span>🔋 Enable Battery</span>
+          <input type="checkbox" id="battery-toggle" checked />
+          <span class="toggle-switch"></span>
+        </label>
+        <label class="toggle-label"><span>🔌 Enable Grid</span>
+          <input type="checkbox" id="grid-toggle" checked />
+          <span class="toggle-switch"></span>
+        </label>
+      </div>
+
+      <label class="slider-label">Solar Intensity: <span id="solar-display">70</span></label>
+      <input type="range" id="solar-slider" min="0" max="100" value="70" />
+
+      <label class="slider-label">Wind Speed: <span id="wind-display">5</span></label>
+      <input type="range" id="wind-slider" min="0" max="15" value="5" />
+    </aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main">
+      <h1 class="page-title">📊 AI-Optimized Smart Grid</h1>
+
+      <!-- Status Banner -->
+      <div id="status-banner" class="banner banner-success">✅ All demand successfully met</div>
+
+      <!-- Simulation Summary -->
+      <div class="summary-grid">
+        <div class="summary-card"><div class="label">Load Demand</div><div class="value" id="s-load">80 kW</div></div>
+        <div class="summary-card"><div class="label">Solar</div><div class="value" id="s-solar">ON</div></div>
+        <div class="summary-card"><div class="label">Wind</div><div class="value" id="s-wind">ON</div></div>
+        <div class="summary-card"><div class="label">Battery</div><div class="value" id="s-battery">ON</div></div>
+        <div class="summary-card"><div class="label">Grid</div><div class="value" id="s-grid">ON</div></div>
+      </div>
+
+      <!-- Charts Row 1 -->
+      <h2 class="section-title">Energy Source Distribution</h2>
+      <div class="chart-full"><canvas id="chart-main"></canvas></div>
+
+      <!-- Charts Row 2 -->
+      <div class="chart-row">
+        <div class="chart-card">
+          <h3>Load vs Renewable</h3>
+          <canvas id="chart-lvr"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>Grid vs Wasted Renewable</h3>
+          <canvas id="chart-gvw"></canvas>
+        </div>
+      </div>
+
+      <!-- Battery Charts (conditional) -->
+      <div id="battery-section">
+        <div class="chart-row">
+          <div class="chart-card">
+            <h3>Battery Behavior</h3>
+            <canvas id="chart-bat-behav"></canvas>
+          </div>
+          <div class="chart-card">
+            <h3>Battery Level</h3>
+            <canvas id="chart-bat-level"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Forecast -->
+      <h2 class="section-title">AI Load Forecast vs Actual</h2>
+      <div class="chart-full"><canvas id="chart-ai"></canvas></div>
+
+      <footer>Built with ❤️ using AI — Renewable Energy Simulation Dashboard</footer>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
