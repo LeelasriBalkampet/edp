@@ -6,7 +6,7 @@
 
 **Smart Grid Builder** is a full-stack, AI-powered web application that simulates and optimizes modern microgrid energy distribution. By seamlessly integrating renewable energy sources (solar and wind) alongside battery storage and grid consumption, the system intelligently manages power flow to minimize costs and maximize renewable utilization.
 
-The platform utilizes a Machine Learning model (Scikit-Learn `MLPRegressor`) to predict 24-hour power loads. It goes a step further by implementing **Time-of-Use (ToU) Pricing Optimization**, ensuring that batteries charge during cheap off-peak hours and discharge during expensive peak hours. 
+The platform utilizes a Machine Learning model (Scikit-Learn MLPRegressor) to predict 24-hour power loads. It goes a step further by implementing Time-of-Use (ToU) Pricing Optimization, ensuring that batteries charge during cheap off-peak hours and discharge during expensive peak hours. 
 
 ## Key Features
 
@@ -19,7 +19,7 @@ The platform utilizes a Machine Learning model (Scikit-Learn `MLPRegressor`) to 
 ## Tech Stack
 
 * **Backend:** Python, Flask, Pandas, SQLite
-* **Machine Learning:** Scikit-Learn (`MLPRegressor`, `LinearRegression`), NumPy
+* **Machine Learning:** Scikit-Learn (MLPRegressor, LinearRegression), NumPy
 * **Frontend:** Vanilla JavaScript, HTML5, CSS3, Chart.js
 * **Deployment:** Docker, Gunicorn, Render
 
@@ -42,7 +42,7 @@ Start the Flask server:
 ```bash
 python app.py
 ```
-Open your browser and navigate to `http://localhost:5000`
+Open your browser and navigate to http://localhost:5000
 
 
 ## Using the CSV Upload Feature
@@ -51,7 +51,7 @@ You can upload your own custom load profiles to simulate how the grid would hand
 
 Your CSV file must contain a column named `load` or `demand` with numerical kW values representing 24 hours of data.
 
-**Example CSV Format (`my_data.csv`):**
+**Example CSV Format (my_data.csv):**
 ```csv
 Time,Load
 00:00,45.2
@@ -60,4 +60,4 @@ Time,Load
 03:00,38.9
 ... (up to 24 rows)
 ```
-Upload this file using the **Custom Data Prediction** section on the dashboard, and the AI will recalculate the simulation based on your curve!
+Upload this file using the Custom Data Prediction section on the dashboard, and the AI will recalculate the simulation based on your curve!
